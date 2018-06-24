@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import Details from './Details'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-
+import loaderProvider from 'context/loaderProvider'
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -33,4 +33,4 @@ const Root = () => {
   )
 }
 
-export default Root
+export default loaderProvider(Root)

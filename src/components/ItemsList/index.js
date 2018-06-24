@@ -4,14 +4,19 @@ import { connect } from 'react-redux'
 import { getItems } from 'utils/actions'
 import Item from 'components/UI/Item'
 import './ItemsList.css'
+import loaderConsumer from 'context/loaderConsumer'
 export class ItemsList extends Component {
   static propTypes = {
     getItems: PropTypes.func.isRequired,
+    startLoading: PropTypes.func.isRequired,
+    stopLoading: PropTypes.func.isRequired,
     items: PropTypes.array.isRequired,
   }
 
   componentDidMount = () => {
-    this.props.getItems()
+    const { getItems, startLoading, stopLoading } = this.props
+    startLoading()
+    getItems().then(rs => stopLoading())
   }
 
   showItems() {
@@ -30,4 +35,4 @@ export class ItemsList extends Component {
 
 export default connect(({ items, getItems }) => ({ items, getItems }), {
   getItems,
-})(ItemsList)
+})(loaderConsumer(ItemsList))
