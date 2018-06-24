@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getItems } from 'utils/actions'
 import Item from 'components/UI/Item'
+import './ItemsList.css'
 export class ItemsList extends Component {
   static propTypes = {
     getItems: PropTypes.func.isRequired,
@@ -16,14 +17,14 @@ export class ItemsList extends Component {
   showItems() {
     const { items } = this.props
     return items.map(item => (
-      <li key={item._id}>
+      <span key={item._id}>
         <Item item={item} />
-      </li>
+      </span>
     ))
   }
 
   render() {
-    return <ul>{this.showItems()}</ul>
+    return <div className="items-grid">{this.showItems()}</div>
   }
 }
 
