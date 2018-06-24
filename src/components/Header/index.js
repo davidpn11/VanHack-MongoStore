@@ -5,13 +5,21 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import CartMenu from './CartMenu'
-
-import MenuItem from '@material-ui/core/MenuItem'
-import Menu from '@material-ui/core/Menu'
 import ShoppingCart from '@material-ui/icons/ShoppingCart'
+import { getItems, removeFromCart } from 'utils/actions'
+import { connect } from 'react-redux'
+import { cartSelector } from 'utils/selectors'
 class Header extends Component {
   state = {
     anchorEl: null,
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.cartItems !== prevState.cartItems) {
+      return nextProps
+    } else {
+      return null
+    }
   }
 
   handleChange = (event, checked) => {
@@ -26,10 +34,14 @@ class Header extends Component {
     this.setState({ anchorEl: null })
   }
 
-  render() {
-    const { anchorEl } = this.state
-    const open = Boolean(anchorEl)
+  componentDidMount = () => {
+    this.state.getItems()
+  }
 
+  render() {
+    const { anchorEl, cartItems, removeFromCart } = this.state
+    console.log('items', cartItems)
+    const open = Boolean(anchorEl)
     return (
       <AppBar position="static" className="mb3">
         <Toolbar className="flex justify-between">
@@ -49,6 +61,8 @@ class Header extends Component {
               isOpen={open}
               anchorEl={anchorEl}
               handleClose={this.handleClose}
+              cartItems={cartItems}
+              removeFromCart={removeFromCart}
             />
           </div>
         </Toolbar>
@@ -57,4 +71,9 @@ class Header extends Component {
   }
 }
 
-export default Header
+function mapStateToProps(state) {
+  console.log(state)
+  return { cartItems: cartSelector(state) }
+}
+
+export default connect(mapStateToProps, { getItems, removeFromCart })(Header)
