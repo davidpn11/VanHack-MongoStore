@@ -6,7 +6,7 @@ import './GlobalLoader.css'
 const GlobalLoader = ({ isLoading = true }) => {
   return (
     <div className="overlay" style={{ display: isLoading ? 'flex' : 'none' }}>
-      <CircularProgress size={100} thickness={3} />
+      <CircularProgress size={100} color="primary" thickness={3} />
     </div>
   )
 }

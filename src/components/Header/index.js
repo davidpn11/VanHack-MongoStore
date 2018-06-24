@@ -9,9 +9,9 @@ import ShoppingCart from '@material-ui/icons/ShoppingCart'
 const Header = () => {
   return (
     <AppBar position="static" className="mb3">
-      <Toolbar className="flex justify-betweenx">
+      <Toolbar className="flex justify-between">
         <Typography variant="title" color="inherit">
-          Title
+          The Mongo Store
         </Typography>
         <IconButton
           //   aria-owns={open ? 'menu-appbar' : null}

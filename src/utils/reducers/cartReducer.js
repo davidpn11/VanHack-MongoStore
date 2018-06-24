@@ -1,6 +1,6 @@
 import { ADD_TO_CART } from 'utils/constants'
 
-const INITIAL_STATE = {}
+const INITIAL_STATE = []
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
