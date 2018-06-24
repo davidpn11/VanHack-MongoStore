@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
-import Details from './Details'
+import Checkout from './Checkout'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import loaderProvider from 'context/loaderProvider'
 import red from '@material-ui/core/colors/red'
@@ -30,7 +30,7 @@ const Root = () => {
     <MuiThemeProvider theme={theme}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/:id" component={props => <Details {...props} />} />
+        <Route exact path="/checkout" component={Checkout} />
       </Switch>
     </MuiThemeProvider>
   )

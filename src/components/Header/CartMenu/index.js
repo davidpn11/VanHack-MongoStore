@@ -6,6 +6,7 @@ import Menu from '@material-ui/core/Menu'
 import ShoppingCart from '@material-ui/icons/ShoppingCart'
 import Button from '@material-ui/core/Button'
 import CardMenuItem from './CardMenuItem'
+import { Link } from 'react-router-dom'
 import './CartMenu.css'
 const CartMenu = ({
   anchorEl,
@@ -31,10 +32,14 @@ const CartMenu = ({
           ))}
         </MenuList>
         <span className="flex flex-row items-center">
-          <span className="fw7 f4 mv3 color-text-2 mr2">Total:</span>
+          <span className="fw7 f4 mv3 color-text-2 mh2">Total:</span>
           ${total}
         </span>
-        <Button color="secondary">Checkout</Button>
+        <Link to="/checkout" className="w-100 flex justify-center">
+          <Button className="w-100" color="secondary">
+            Checkout
+          </Button>
+        </Link>
       </div>
     )
   }

@@ -40,7 +40,6 @@ class Header extends Component {
 
   render() {
     const { anchorEl, cartItems, removeFromCart } = this.state
-    console.log('items', cartItems)
     const open = Boolean(anchorEl)
     return (
       <AppBar position="static" className="mb3">
@@ -72,7 +71,6 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return { cartItems: cartSelector(state) }
 }
 

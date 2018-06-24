@@ -24,7 +24,7 @@ const Item = ({ item, addToCart, removeFromCart, onCart }) => {
         <Typography gutterBottom variant="headline" component="h2">
           {item.title}
         </Typography>
-        <Typography gutterBottom variant="subtitle" component="h3">
+        <Typography gutterBottom component="h3">
           {item.slogan}
         </Typography>
         <div className="flex justify-between">
