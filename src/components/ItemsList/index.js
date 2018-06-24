@@ -21,7 +21,7 @@ export class ItemsList extends Component {
   componentDidMount = () => {
     const { getItems, startLoading, stopLoading } = this.state
     startLoading()
-    getItems().then(rs => stopLoading())
+    getItems().then(() => stopLoading())
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
