@@ -4,20 +4,23 @@ import Home from './Home'
 import Details from './Details'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import loaderProvider from 'context/loaderProvider'
+import red from '@material-ui/core/colors/red'
+import green from '@material-ui/core/colors/green'
+
 const theme = createMuiTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#43A047',
+      main: green[600],
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contast with palette.primary.main
     },
     secondary: {
-      light: '#A5D6A7',
-      main: '#81C784',
+      main: red[600],
       // dark: will be calculated from palette.secondary.main,
-      contrastText: '#ffcc00',
+      // contrastText: '#ffcc00',
     },
+    // error: red[600],
     // error: will use the default color
   },
 })

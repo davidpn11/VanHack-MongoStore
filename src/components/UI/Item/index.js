@@ -7,8 +7,9 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
+import RemoveIcon from '@material-ui/icons/Remove'
 
-const Item = ({ item, addToCart }) => {
+const Item = ({ item, addToCart, removeFromCart, onCart }) => {
   return (
     <Card>
       <CardMedia
@@ -25,15 +26,27 @@ const Item = ({ item, addToCart }) => {
         </Typography>
         <div className="flex justify-between">
           <span>$ {item.price}</span>
-          <Button
-            onClick={() => addToCart(item._id)}
-            variant="fab"
-            mini
-            color="primary"
-            aria-label="add"
-          >
-            <AddIcon />
-          </Button>
+          {!onCart ? (
+            <Button
+              onClick={() => addToCart(item._id)}
+              variant="fab"
+              mini
+              color="primary"
+              aria-label="add"
+            >
+              <AddIcon />
+            </Button>
+          ) : (
+            <Button
+              onClick={() => removeFromCart(item._id)}
+              variant="fab"
+              mini
+              color="secondary"
+              aria-label="add"
+            >
+              <RemoveIcon />
+            </Button>
+          )}
         </div>
       </CardContent>
     </Card>
@@ -43,6 +56,8 @@ const Item = ({ item, addToCart }) => {
 Item.propTypes = {
   item: PropTypes.object.isRequired,
   addToCart: PropTypes.func,
+  removeFromCart: PropTypes.func,
+  onCart: PropTypes.bool,
 }
 
 export default Item
