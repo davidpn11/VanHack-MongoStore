@@ -3,7 +3,7 @@
   "semi": false,
   "eslintIntegration": true,
   "bracketSpacing": true,
-  "arrowParens": "always",
+  "arrowParens": "avoid",
   "spaceBeforeFunctionParent": true,
   "trailingComma": "es5"
 }
