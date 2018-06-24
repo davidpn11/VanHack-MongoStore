@@ -24,8 +24,13 @@ const Item = ({ item, addToCart, removeFromCart, onCart }) => {
         <Typography gutterBottom variant="headline" component="h2">
           {item.title}
         </Typography>
+        <Typography gutterBottom variant="subtitle" component="h3">
+          {item.slogan}
+        </Typography>
         <div className="flex justify-between">
-          <span>$ {item.price}</span>
+          <span className="flex f4 flex-row items-center">
+            <span className="dollar">$</span> {item.price}
+          </span>
           {!onCart ? (
             <Button
               onClick={() => addToCart(item._id)}

@@ -30,7 +30,10 @@ const CartMenu = ({
             />
           ))}
         </MenuList>
-        <span>Total: {total}</span>
+        <span className="flex flex-row items-center">
+          <span className="fw7 f4 mv3 color-text-2 mr2">Total:</span>
+          ${total}
+        </span>
         <Button color="secondary">Checkout</Button>
       </div>
     )

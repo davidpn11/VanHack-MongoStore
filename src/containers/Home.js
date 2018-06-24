@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <div className="flex flex-column w-100 items-center">
       <Header />
-      <ItemsList />
+      <div className="ph3">
+        <ItemsList />
+      </div>
     </div>
   )
 }
